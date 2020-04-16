@@ -20,7 +20,7 @@ class DataBaseManager {
      * DataBaseManager constructor.
      * @param $mysqli
      */
-    private function __construct() {
+    public function __construct() {
         $this->mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DB);
         if ($this->mysqli->connect_errno) {
             echo "Fallo al conectar a MySQL: (" . $this->mysqli->connect_errno . ") " . $this->mysqli->connect_error;
