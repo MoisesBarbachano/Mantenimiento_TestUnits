@@ -28,6 +28,9 @@ class ParejasManager {
         }
         return self::$_instance;
     }
+    public function setDBManager($db){
+        $this->dbManager = $db;
+    }
 
     public function getPareja($idMateria, $id) {
         $query = "SELECT concepto,descripcion, FROM parejas WHERE id='$id' AND idmateria= '$idMateria'";
@@ -51,15 +54,14 @@ class ParejasManager {
         $resultado = $this->dbManager->insertQuery($query);
 
         if (!is_bool($resultado)) {
-            return $resultado;
+            return "$resultado";
         }
 
         return "";
     }
 
     public function updatePareja($id, $idMatter, $concept, $definition) {
-        $query = "UPDATE parejas set idmateria = '$idMatter' , concepto = 
-        '$concept' , descripcion = '$definition' WHERE id=" . intval($id);
+        $query = "UPDATE parejas set idmateria = '$idMatter' , concepto = '$concept' , descripcion = '$definition' WHERE id=".intval($id);
 
         $resultado = $this->dbManager->insertQuery($query);
 
@@ -121,7 +123,6 @@ class ParejasManager {
             $couple['idMatter'] = $result[$i]['idmateria'];
             $couple['concept'] = $result[$i]['concepto'];
             $couple['definition'] = $result[$i]['descripcion'];
-
 
             $coupleList[] = $couple;
         }
