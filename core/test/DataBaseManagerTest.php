@@ -51,10 +51,10 @@ final class DataBaseManagerTest extends TestCase
         ->once()
         ->andReturn(1);
 
-    $response = $this->dbManager->realizeQuery("SELECT COUNT(*) FROM usuario");
-    $this->assertEquals(
-        1, $response
-    );
+        $response = $this->dbManager->realizeQuery("SELECT COUNT(*) FROM usuario");
+        $this->assertEquals(
+            1, $response
+        );
     }
 
     public function testRealizeQueryNegative(){
