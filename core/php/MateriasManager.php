@@ -16,11 +16,12 @@ class MateriasManager{
         $this->dbManager = DataBaseManager::getInstance();
     }
 
+    public function setDBManager($db){
+        $this->dbManager = $db;
+    }
+
     public function __destruct(){
-        /*
-         * Falla cuando se llama a la funcion close();
-         * */
-        //$this->dbManager->close();
+        $this->dbManager->close();
         self::$_instance = null;
     }
 
@@ -32,7 +33,7 @@ class MateriasManager{
     }
 
     public function getMateria($idmateria){
-        $query = "SELECT * FROM materias WHERE id = $idmateria";
+        $query = "SELECT * FROM materias WHERE id='$idmateria'";
 
         $resultado = $this->dbManager->realizeQuery($query);
 
@@ -51,9 +52,7 @@ class MateriasManager{
 
     public function setMateria($name){
         $query = "INSERT INTO materias (nombre) VALUES('$name')";
-
         $resultado = $this->dbManager->insertQuery($query);
-
         if(!is_bool($resultado)){
             return $resultado;
         }
@@ -62,7 +61,7 @@ class MateriasManager{
 
 
     public function updateMateria($id,$name){
-        $query = "UPDATE materias set nombre= '$name' WHERE id =".intval($id);
+        $query = "UPDATE materias set nombre = '$name' WHERE id=".intval($id);
 
         $resultado = $this->dbManager->insertQuery($query);
 
@@ -83,19 +82,18 @@ class MateriasManager{
 
         return "";
     }
-
     public function getAllMateria(){
         $query = "SELECT * FROM materias";
 
         $resultado = $this->dbManager->realizeQuery($query);
 
         if($resultado == null){
-            return "tabla materia vacia";
+            return "";
         }
         else{
             if(is_array($resultado)){
-                $matterList[] = $this->setValuesToResult($resultado);
-                return json_encode($matterList);
+                $materList[] = $this->setValuesToResult($resultado);
+                return json_encode($materList);
             }
             else{
                 return $resultado->num_rows;
