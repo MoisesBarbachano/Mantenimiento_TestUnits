@@ -6,9 +6,9 @@
  * Date: 07/02/2016
  * Time: 07:55 PM
  */
-define('SERVER', 'localhost:8889');
+define('SERVER', 'localhost');
 define('USERNAME', 'root');
-define('PASSWORD', 'root');
+define('PASSWORD', '');
 define('DB', 'memorama');
 
 class DataBaseManager {
@@ -63,6 +63,10 @@ class DataBaseManager {
 
     public function close() {
         $this->mysqli->close();
+    }
+
+    public function setDBManager($db){
+        $this->dbManager = $db;
     }
 
 }
