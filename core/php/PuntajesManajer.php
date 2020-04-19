@@ -18,7 +18,7 @@ class PuntajesManajer {
     }
 
     public function setDBManager($db){
-    $this->dbManager = $db;
+        $this->dbManager = $db;
     }
 
     public function __destruct() {
