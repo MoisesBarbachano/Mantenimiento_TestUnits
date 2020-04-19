@@ -17,6 +17,10 @@ class PuntajesManajer {
         $this->dbManager = DataBaseManager::getInstance();
     }
 
+    public function setDBManager($db){
+        $this->dbManager = $db;
+    }
+
     public function __destruct() {
         /*
          * Falla cuando se llama a la funcion close();
