@@ -1,7 +1,8 @@
 <?php
+use Mockery as Mockery;
 
 require_once("./core/php/DataBaseManager.php");
-final class DataBaseManagerTest extends PHPUnit\Framework\TestCase
+final class DataBaseManagerTest extends PHPUnit_Framework_TestCase
 {
     private $dbManager;
 
