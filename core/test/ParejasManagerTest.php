@@ -1,7 +1,6 @@
 <?php
-use PHPUnit\Framework\TestCase;
 require_once("./core/php/ParejasManager.php");
-final class ParejasManagerTest extends TestCase
+final class ParejasManagerTest extends PHPUnit_Framework_TestCase
 {
 
     private $ParejasManager;
