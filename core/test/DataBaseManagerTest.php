@@ -1,5 +1,5 @@
 <?php
-use \vendor\mockery\mockery\library\Mockery as m;
+use ".\vendor\mockery\mockery\library\Mockery" as m;
 
 require_once("./core/php/DataBaseManager.php");
 final class DataBaseManagerTest extends PHPUnit_Framework_TestCase
