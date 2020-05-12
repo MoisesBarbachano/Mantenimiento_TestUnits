@@ -1,7 +1,6 @@
 <?php
-use PHPUnit\Framework\TestCase;
 require_once("./core/php/PuntajesManajer.php");
-class PuntajesManajerTest extends TestCase
+class PuntajesManajerTest extends PHPUnit_Framework_TestCase
 {
     private $PuntajesManajer;
     private $dbManager;
