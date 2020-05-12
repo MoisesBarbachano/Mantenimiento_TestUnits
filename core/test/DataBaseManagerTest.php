@@ -1,5 +1,5 @@
 <?php
-use Mockery as Mockery;
+use \Mockery as m;
 
 require_once("./core/php/DataBaseManager.php");
 final class DataBaseManagerTest extends PHPUnit_Framework_TestCase
@@ -11,7 +11,7 @@ final class DataBaseManagerTest extends PHPUnit_Framework_TestCase
 
     private function setupMockito(){
         $this->DataBaseManager = DataBaseManager::getInstance();
-        $this->dbManager = Mockery::mock(DatabaseManager::class);
+        $this->dbManager = m::mock(DatabaseManager::class);
         $this->dbManager->shouldReceive('close')->andReturn(null);
         $this->dbManager->shouldReceive('insertQuery')->once()->with("")->andReturn(false);
         $this->DataBaseManager->setDBManager($this->dbManager);
