@@ -16,11 +16,11 @@ final class DataBaseManagerTest extends PHPUnit_Framework_TestCase
         $this->DataBaseManager->setDBManager($this->dbManager);
     }
 
-    public function testClose(){
-        $this->setupMockito();
-        $this->dbManager->shouldReceive('close')->andReturn('true');
-        $this->assertEquals(null, $this->dbManager->close());
-    }
+    //public function testClose(){
+    //    $this->setupMockito();
+    //    $this->dbManager->shouldReceive('close')->andReturn('true');
+    //    $this->assertEquals(null, $this->dbManager->close());
+    //}
 
     public function testInsertQueryPositive(){
         $this->setupMockito();
