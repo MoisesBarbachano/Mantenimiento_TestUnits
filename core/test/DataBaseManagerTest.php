@@ -5,7 +5,6 @@ final class DataBaseManagerTest extends TestCase
 {
     private $dbManager;
 
-
     private $DataBaseManager;
 
     private function setupMockito(){
