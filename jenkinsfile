@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                catchError {
+                    echo 'Testing..'
+                    bat 'vendor/bin/phpunit --bootstrap ./vendor/autoload.php core/test --debug --log-junit results/phpunit.xml'
+                }
+            }
+            post {
+                success {
+                    echo 'Testing successful'
+                    bat 'cd C:\Users\JavierQ\Documents\Tareas\Mantenimiento_TestUnits & git pull origin'
+
+                }
+                failure {
+                    echo 'Testing stage failed'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
