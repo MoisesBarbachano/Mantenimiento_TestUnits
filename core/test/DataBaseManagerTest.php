@@ -1,5 +1,5 @@
 <?php
-use PHPUnit\Framework\TestCase;
+extends PHPUnit\Framework\TestCase;
 require_once("./core/php/DataBaseManager.php");
 final class DataBaseManagerTest extends TestCase
 {
