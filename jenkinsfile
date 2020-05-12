@@ -11,7 +11,7 @@ pipeline {
             steps {
                 catchError {
                     echo 'Testing..'
-                    bat './vendor/bin/phpunit ./vendor/autoload.php core/test --log-junit results/phpunit.xml'
+                    bat './vendor/bin/phpunit core/test --log-junit results/phpunit.xml'
                 }
             }
             post {
