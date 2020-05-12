@@ -1,7 +1,7 @@
 <?php
 
 require_once("./core/php/DataBaseManager.php");
-final class DataBaseManagerTest extends PHPUnit_Framework_TestCase
+final class DataBaseManagerTest extends TestCase
 {
     private $dbManager;
 
