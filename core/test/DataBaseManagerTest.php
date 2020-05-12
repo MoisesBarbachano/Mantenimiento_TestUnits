@@ -1,7 +1,8 @@
 <?php
-use PHPUnit\Framework\TestCase;
+use ".\vendor\mockery\mockery\library\Mockery" as m;
+
 require_once("./core/php/DataBaseManager.php");
-final class DataBaseManagerTest extends TestCase
+final class DataBaseManagerTest extends PHPUnit_Framework_TestCase
 {
     private $dbManager;
 
@@ -9,17 +10,17 @@ final class DataBaseManagerTest extends TestCase
 
     private function setupMockito(){
         $this->DataBaseManager = DataBaseManager::getInstance();
-        $this->dbManager = Mockery::mock(DatabaseManager::class);
+        $this->dbManager = m::mock(DatabaseManager::class);
         $this->dbManager->shouldReceive('close')->andReturn(null);
         $this->dbManager->shouldReceive('insertQuery')->once()->with("")->andReturn(false);
         $this->DataBaseManager->setDBManager($this->dbManager);
     }
 
-    public function testClose(){
-        $this->setupMockito();
-        $this->dbManager->shouldReceive('close')->andReturn('true');
-        $this->assertEquals(null, $this->dbManager->close());
-    }
+    //public function testClose(){
+    //    $this->setupMockito();
+    //    $this->dbManager->shouldReceive('close')->andReturn('true');
+    //    $this->assertEquals(null, $this->dbManager->close());
+    //}
 
     public function testInsertQueryPositive(){
         $this->setupMockito();

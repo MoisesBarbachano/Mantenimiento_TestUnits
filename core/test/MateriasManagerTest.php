@@ -1,7 +1,7 @@
 <?php
-use PHPUnit\Framework\TestCase;
+
 require_once("./core/php/MateriasManager.php");
-final class MateriasManagerTest extends TestCase
+final class MateriasManagerTest extends PHPUnit_Framework_TestCase
 {
 
     private $MateriasManager;
