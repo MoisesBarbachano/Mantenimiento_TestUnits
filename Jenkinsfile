@@ -11,13 +11,13 @@ pipeline {
             steps {
                 catchError {
                     echo 'Testing..'
-                    sh './vendor/bin/phpunit core/test --log-junit results/phpunit.xml'
+                    bat '/vendor/bin/phpunit core/test --log-junit results/phpunit.xml'
                 }
             }
             post {
                 success {
                     echo 'Testing successful'
-                    sh 'cd C:/xampp12082019/htdocs/Memorama-mamaster & git pull origin'
+                    bat 'cd C:/xampp12082019/htdocs/Memorama-mamaster & git pull origin'
 
                 }
                 failure {
