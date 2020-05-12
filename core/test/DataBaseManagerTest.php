@@ -10,7 +10,7 @@ final class DataBaseManagerTest extends TestCase
 
     private function setupMockito(){
         $this->DataBaseManager = DataBaseManager::getInstance();
-        $this->dbManager = m::mock(DatabaseManager::class);
+        $this->dbManager = Mockery::mock(DatabaseManager::class);
         $this->dbManager->shouldReceive('close')->andReturn(null);
         $this->dbManager->shouldReceive('insertQuery')->once()->with("")->andReturn(false);
         $this->DataBaseManager->setDBManager($this->dbManager);
