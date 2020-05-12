@@ -8,7 +8,7 @@ final class MateriasManagerTest extends TestCase
     private $dbManager;
 
     private function setupMockito(){
-        $this->MateriasManager = MateriasManager::getInstance();
+        //$this->MateriasManager = MateriasManager::getInstance();
         $this->dbManager = Mockery::mock(DatabaseManager::class); 
         $this->dbManager->shouldReceive('close')->andReturn(null);
         $this->dbManager->shouldReceive('insertQuery')->once()->with("")->andReturn(false);
