@@ -21,15 +21,15 @@ class DataBaseManager {
      * @param $mysqli
      */
     public function __construct() {
-        $this->mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DB);
-        if ($this->mysqli->connect_errno) {
-            echo "Fallo al conectar a MySQL: (" . $this->mysqli->connect_errno . ") " . $this->mysqli->connect_error;
-        }
+        //$this->mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DB);
+        //if ($this->mysqli->connect_errno) {
+        //    echo "Fallo al conectar a MySQL: (" . $this->mysqli->connect_errno . ") " . $this->mysqli->connect_error;
+        //}
 
-        if (!$this->mysqli->set_charset('utf8')) {
-            printf("Error cargando el conjunto de caracteres utf8: %s\n", $this->mysqli->error);
-            exit;
-        }
+        //if (!$this->mysqli->set_charset('utf8')) {
+        //    printf("Error cargando el conjunto de caracteres utf8: %s\n", $this->mysqli->error);
+        //    exit;
+        //}
     }
 
     public function __destruct() {
