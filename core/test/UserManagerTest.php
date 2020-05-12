@@ -1,7 +1,6 @@
 <?php
-use PHPUnit\Framework\TestCase;
 require_once("./core/php/userManager.php");
-final class UserManagerTest extends TestCase
+final class UserManagerTest extends PHPUnit_Framework_TestCase
 {
 
     private $UserManager;
