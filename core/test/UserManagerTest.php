@@ -28,7 +28,7 @@ final class UserManagerTest extends TestCase
         $this->assertIsNumeric($tipo);
 
         $this->assertEquals( 
-            'false', $this->UserManager->setUser($name,$password,$tipo)
+            'true', $this->UserManager->setUser($name,$password,$tipo)
         );
     }
     public function testSetUserNegative(){
